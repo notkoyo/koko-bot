@@ -8,7 +8,7 @@ module.exports = {
   // testOnly: Boolean,
   // options: Object[],
   // deleted: Boolean,
-  permissionsRequired: [PermissionFlagsBits.Administrator],
+  permissionsRequired: [PermissionFlagsBits.MoveMembers],
   botPermissions: [PermissionFlagsBits.Administrator],
   callback: async (client, interaction) => {
     const allChannels = await ID.find();

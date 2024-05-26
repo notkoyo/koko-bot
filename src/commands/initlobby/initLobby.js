@@ -8,7 +8,7 @@ module.exports = {
   // testOnly: Boolean,
   // options: Object[],
   // deleted: Boolean,
-  permissionsRequired: [PermissionFlagsBits.Administrator],
+  permissionsRequired: [PermissionFlagsBits.MoveMembers],
   botPermissions: [PermissionFlagsBits.Administrator],
   callback: async (client, interaction) => {
     try {
@@ -26,9 +26,15 @@ module.exports = {
           type: ChannelType.GuildCategory,
           position: 3,
         });
+
+        const spectatorsRoom = await interaction.guild.channels.create({
+          name: "Waiting Room",
+          type: ChannelType.GuildVoice,
+          parent: customsCategory.id,
+        })
   
         const waitingRoom = await interaction.guild.channels.create({
-          name: "Waiting Room 📍",
+          name: "Lobby",
           type: ChannelType.GuildVoice,
           userLimit: 10,
           parent: customsCategory.id,
@@ -64,6 +70,10 @@ module.exports = {
           {
             name: "CustomsCategory",
             channelId: customsCategory.id,
+          },
+          {
+            name: "SpectatorsRoom",
+            channelId: spectatorsRoom.id,
           },
           {
             name: "WaitingRoom",
