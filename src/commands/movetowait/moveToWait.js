@@ -15,7 +15,6 @@ module.exports = {
   permissionsRequired: [PermissionFlagsBits.Administrator],
   botPermissions: [PermissionFlagsBits.Administrator],
   callback: async (client, interaction) => {
-    // Fetch all needed voice channel ids (attackers, defenders, waiting room)
     const allChannels = await ID.find();
 
     if (allChannels.length > 0) {
@@ -49,7 +48,6 @@ module.exports = {
       } else {
         const guild = await client.guilds.fetch(GUILD_ID);
 
-        // Fetch all users in attackers and defenders voice channels
         const atkMembers = await atkChannel.members.map(
           (member) => member.user
         );
@@ -57,7 +55,6 @@ module.exports = {
           (member) => member.user
         );
 
-        // Move all users from attackers/defenders to waiting room
         for (const attacker of atkMembers) {
           const player = await guild.members.fetch(attacker.id);
           await player.voice.setChannel(waitingRoom);
