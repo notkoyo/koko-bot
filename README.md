@@ -38,7 +38,7 @@ cd valo_dc_bot
 npm install
 ```
 
-3. Create a .env in the root directory and add necessary token, IDs and your MongoDB URI.
+3. Create a .env in the root directory and add necessary token, IDs and your MongoDB URI
 ```env 
 TOKEN = YOUR_DISCORD_BOT_TOKEN
 GUILD_ID = YOUR_GUILD_ID
@@ -46,7 +46,7 @@ CLIENT_ID = YOUR_CLIENT_ID
 MONGODB_URI = YOUR_MONGODB_URI
 ```
 
-4. Edit config.json file to include your test server ID, client ID and include any user IDs in the devs array to allow access to the "Dev Only" functionality.
+4. Edit config.json file to include your test server ID, client ID and include any user IDs in the devs array to allow access to the "Dev Only" functionality
 ```json
 {
   "testServer": "1234567890123456789",
@@ -55,34 +55,34 @@ MONGODB_URI = YOUR_MONGODB_URI
 }
 ```
 
-5. Start the bot in the terminal.
+5. Start the bot in the terminal
 ```bash
 npm run start:dev
 ```
 
 ##### Commands
 
-- Ping the bot to check for a valid connection.
+- Ping the bot to check for a valid connection
 ```diff
 /ping
 ```
 
-- Initalize a lobby: Creates parent category and all channels as children.
+- Initalize a lobby: Creates parent category and all channels as children
 ```diff
 /initlobby
 ```
 
-- Creates randomized teams and randomly assign 10 players into two teams (Attacker/Defender).
+- Creates randomized teams and randomly assign 10 players into two teams (Attacker/Defender)
 ```diff
 /maketeams
 ```
 
-- Move all players within Attacker/Defender channels back to the waiting room channel.
+- Move all players within Attacker/Defender channels back to the waiting room channel
 ```diff
 /movetowait
 ```
 
-- Delete the entire lobby from the Discord server.
+- Delete the entire lobby from the Discord server
 ```diff
 /rmlobby
 ```
