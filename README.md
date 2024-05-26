@@ -67,7 +67,7 @@ npm run start:dev
 /ping
 ```
 
-- Initalize a lobby: Creates parent category and all channels as children
+- Initalize a lobby and create a parent category and all channels as children
 ```diff
 /initlobby
 ```
