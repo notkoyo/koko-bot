@@ -100,6 +100,6 @@ The bot uses a MongoDB database to store information about the lobby and player 
 - [Nodemon](https://nodemon.io/)
 
 ### Contact
-For any questions or suggestions, please feel free to reach out to me on Discord: @koyodev.
+For any questions or suggestions, please feel free to reach out to me on Discord: **@koyodev**.
 
 ### Enjoy your valorant custom games! 🎮
