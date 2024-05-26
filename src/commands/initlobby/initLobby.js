@@ -22,12 +22,13 @@ module.exports = {
         });
       } else {
         const customsCategory = await interaction.guild.channels.create({
-          name: "Customs",
+          name: "╰┈➤ Customs",
           type: ChannelType.GuildCategory,
+          position: 3,
         });
   
         const waitingRoom = await interaction.guild.channels.create({
-          name: "Waiting Room 📌",
+          name: "Waiting Room 📍",
           type: ChannelType.GuildVoice,
           userLimit: 10,
           parent: customsCategory.id,

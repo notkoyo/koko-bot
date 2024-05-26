@@ -1,3 +1,4 @@
+require("dotenv").config();
 const {
   PermissionFlagsBits,
   ActionRowBuilder,
@@ -7,8 +8,10 @@ const {
 const ID = require("../../db/models/id");
 const createTeams = require("../../utils/createTeams");
 
+const { GUILD_ID } = process.env;
+
 module.exports = {
-  name: "mkteams",
+  name: "maketeams",
   description: "Create random teams based on current players in waiting room.",
   // devOnly: Boolean,
   // testOnly: Boolean,
@@ -32,7 +35,9 @@ module.exports = {
         .filter((channel) => channel.name === "DefendersChannel")
         .map((dc) => dc.channelId);
 
-      const waitingRoom = await client.channels.fetch(waitingRoomID, { force: true });
+      const waitingRoom = await client.channels.fetch(waitingRoomID, {
+        force: true,
+      });
       const atkChannel = await client.channels.fetch(attackerChannelID);
       const defChannel = await client.channels.fetch(defenderChannelID);
 
@@ -42,10 +47,18 @@ module.exports = {
           ephemeral: true,
         });
       } else {
-        const guild = await client.guilds.fetch(process.env.GUILD_ID);
+        const guild = await client.guilds.fetch(GUILD_ID);
 
         const members = waitingRoom.members;
         const memberList = members.map((member) => member.user);
+
+        if (memberList.length < 10) {
+          interaction.reply({
+            content: "Not enough players in the waiting room, please try again later.",
+            ephemeral: true,
+          });
+          return;
+        }
 
         const { attackers, defenders } = createTeams(memberList);
 
