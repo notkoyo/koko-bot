@@ -1,4 +1,4 @@
-const { PermissionFlagsBits, ChannelType } = require("discord.js");
+const { PermissionFlagsBits, ChannelType, PermissionsBitField } = require("discord.js");
 const ID = require("../../db/models/id");
 
 module.exports = {
@@ -39,6 +39,12 @@ module.exports = {
           type: ChannelType.GuildVoice,
           userLimit: 5,
           parent: customsCategory.id,
+          permissionOverwrites: [
+            {
+              id: interaction.guild.id,
+              deny: [PermissionsBitField.Flags.Connect],
+            },
+          ],
         });
   
         const defendersChannel = await interaction.guild.channels.create({
@@ -46,6 +52,12 @@ module.exports = {
           type: ChannelType.GuildVoice,
           userLimit: 5,
           parent: customsCategory.id,
+          permissionOverwrites: [
+            {
+              id: interaction.guild.id,
+              deny: [PermissionsBitField.Flags.Connect],
+            },
+          ],
         });
   
         createdChannels.push(

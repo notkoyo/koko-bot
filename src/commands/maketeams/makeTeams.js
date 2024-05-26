@@ -38,6 +38,7 @@ module.exports = {
       const waitingRoom = await client.channels.fetch(waitingRoomID, {
         force: true,
       });
+
       const atkChannel = await client.channels.fetch(attackerChannelID);
       const defChannel = await client.channels.fetch(defenderChannelID);
 
@@ -52,13 +53,13 @@ module.exports = {
         const members = waitingRoom.members;
         const memberList = members.map((member) => member.user);
 
-        if (memberList.length < 10) {
+        /*if (memberList.length < 10) {
           interaction.reply({
             content: "Not enough players in the waiting room, please try again later.",
             ephemeral: true,
           });
           return;
-        }
+        }*/
 
         const { attackers, defenders } = createTeams(memberList);
 
@@ -106,6 +107,8 @@ module.exports = {
             components: [],
             ephemeral: true,
           });
+
+          await waitingRoom.permissionOverwrites.create(waitingRoom.guild.roles.everyone, { Connect: false });
         } else if (confirmation.customId === "No") {
           await interaction.editReply({
             content: "Rerun the command when you're ready to move all players.",

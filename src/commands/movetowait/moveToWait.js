@@ -59,11 +59,13 @@ module.exports = {
           const player = await guild.members.fetch(attacker.id);
           await player.voice.setChannel(waitingRoom);
         }
-
+        
         for (const defender of defMembers) {
           const player = await guild.members.fetch(defender.id);
           await player.voice.setChannel(waitingRoom);
         }
+
+        await waitingRoom.permissionOverwrites.create(waitingRoom.guild.roles.everyone, { Connect: true });
 
         await interaction.reply({
           content: "All players moved back to the waiting room.",
