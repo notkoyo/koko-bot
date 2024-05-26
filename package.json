@@ -1,7 +1,7 @@
 {
-  "name": "valo_dc_bot",
+  "name": "discord-bot",
   "version": "1.0.0",
-  "description": "Valorant Discord Bot",
+  "description": "",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,12 +9,12 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^3.1.0"
-  },
   "dependencies": {
     "discord.js": "^14.15.2",
-    "dotenv": "^16.4.5",
-    "fs": "^0.0.1-security"
+    "dotenv": "^16.0.3",
+    "mongoose": "^8.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }
