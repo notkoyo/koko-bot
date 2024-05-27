@@ -43,7 +43,6 @@ module.exports = {
         const attackersChannel = await interaction.guild.channels.create({
           name: "Attackers",
           type: ChannelType.GuildVoice,
-          userLimit: 5,
           parent: customsCategory.id,
           permissionOverwrites: [
             {
@@ -56,7 +55,6 @@ module.exports = {
         const defendersChannel = await interaction.guild.channels.create({
           name: "Defenders",
           type: ChannelType.GuildVoice,
-          userLimit: 5,
           parent: customsCategory.id,
           permissionOverwrites: [
             {

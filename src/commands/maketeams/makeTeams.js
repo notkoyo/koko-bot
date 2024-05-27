@@ -53,13 +53,13 @@ module.exports = {
         const members = waitingRoom.members;
         const memberList = members.map((member) => member.user);
 
-        /*if (memberList.length < 10) {
+        if (memberList.length < 10) {
           interaction.reply({
             content: "Not enough players in the waiting room, please try again later.",
             ephemeral: true,
           });
           return;
-        }*/
+        }
 
         const { attackers, defenders } = createTeams(memberList);
 
