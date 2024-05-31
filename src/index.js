@@ -1,10 +1,10 @@
 require("dotenv").config();
-const {Client, IntentsBitField} = require("discord.js");
+const {Client, GatewayIntentBits} = require("discord.js");
 const eventHandler = require("./handlers/eventHandler");
 const mongoose = require("mongoose");
 
 const {TOKEN, MONGODB_URI} = process.env;
-const {Guilds, GuildMembers, GuildMessages, MessageContent, GuildVoiceStates} = IntentsBitField;
+const {Guilds, GuildMembers, GuildMessages, MessageContent, GuildVoiceStates} = GatewayIntentBits;
 
 const client = new Client({
   intents: [Guilds, GuildMembers, GuildMessages, MessageContent, GuildVoiceStates],
